@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Quote from './Quote';
+import random
 
-function App() {
-  const [quote, setQuote] = useState('');
+def get_random_quote():
+    quotes = [
+        "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
+        "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+        "Do not watch the clock. Do what it does. Keep going. - Sam Levenson",
+        "Keep your face always toward the sunshine—and shadows will fall behind you. - Walt Whitman",
+        "The best way to predict the future is to invent it. - Alan Kay"
+    ]
+    return random.choice(quotes)
 
-  useEffect(() => {
-    fetchRandomQuote();
-  }, []);
-
-  const fetchRandomQuote = async () => {
-    const response = await fetch('https://quote-garden.herokuapp.com/api/v3/quotes/random');
-    const data = await response.json();
-    setQuote(data.data[0].quoteText);
-  };
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Random Quote Generator</h1>
-        <Quote text={quote} />
-        <button onClick={fetchRandomQuote}>New Quote</button>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+# Получение случайной цитаты
+print(get_random_quote())
